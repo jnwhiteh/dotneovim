@@ -1,0 +1,81 @@
+return {
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  cmd = "Neotree",
+  keys = {
+    { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
+    { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Reveal current file" },
+  },
+  opts = {
+    close_if_last_window = true,
+    popup_border_style = "rounded",
+    enable_git_status = true,
+    enable_diagnostics = true,
+    filesystem = {
+      bind_to_cwd = false,
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
+      filtered_items = {
+        visible = false,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = {
+          ".git",
+          ".DS_Store",
+        },
+      },
+    },
+    window = {
+      position = "left",
+      width = 35,
+      mappings = {
+        ["<space>"] = "none",
+        ["<CR>"] = "open",
+        ["o"] = "open",
+        ["s"] = "open_split",
+        ["v"] = "open_vsplit",
+        ["t"] = "open_tabnew",
+        ["a"] = { "add", config = { show_path = "relative" } },
+        ["d"] = "delete",
+        ["r"] = "rename",
+        ["c"] = "copy",
+        ["m"] = "move",
+        ["q"] = "close_window",
+        ["R"] = "refresh",
+        ["?"] = "show_help",
+        ["<"] = "prev_source",
+        [">"] = "next_source",
+      },
+    },
+    default_component_configs = {
+      indent = {
+        with_expanders = true,
+        expander_collapsed = "",
+        expander_expanded = "",
+      },
+      icon = {
+        folder_closed = "",
+        folder_open = "",
+        folder_empty = "",
+      },
+      git_status = {
+        symbols = {
+          added = "",
+          modified = "",
+          deleted = "✖",
+          renamed = "󰁕",
+          untracked = "",
+          ignored = "",
+          unstaged = "󰄱",
+          staged = "",
+          conflict = "",
+        },
+      },
+    },
+  },
+}
