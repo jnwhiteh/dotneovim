@@ -10,3 +10,12 @@ vim.diagnostic.config({
     prefix = "●", -- or "", "■", etc.
   },
 })
+
+if vim.g.neovide and vim.fn.argc() == 0 then
+  vim.api.nvim_create_autocmd("VimEnter", {
+    once = true,
+    callback = function()
+      require("telescope").extensions.projects.projects()
+    end,
+  })
+end

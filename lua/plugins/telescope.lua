@@ -21,4 +21,10 @@ return {
 		{ "<leader>sk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
 		{ "<leader>sc", "<cmd>Telescope commands<CR>", desc = "Commands" },
     },
+
+    config = function()
+        local telescope = require("telescope")
+        telescope.setup({})
+        telescope.load_extension("projects")
+    end,
 }
