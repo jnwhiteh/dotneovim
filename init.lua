@@ -1,1 +1,12 @@
 require("config.lazy")
+
+vim.lsp.config('lua_ls', require('lsp.lua_ls'))
+vim.lsp.enable('lua_ls')
+
+vim.diagnostic.config({
+  virtual_text = {
+    virt_text_pos = "right_align",
+    spacing = 2,
+    prefix = "●", -- or "", "■", etc.
+  },
+})

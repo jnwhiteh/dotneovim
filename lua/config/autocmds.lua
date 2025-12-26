@@ -52,15 +52,9 @@ autocmd("FileType", {
   end,
 })
 
--- Auto create dir when saving a file
-autocmd("BufWritePre", {
-  group = augroup("auto_create_dir", { clear = true }),
-  callback = function(event)
-    if event.match:match("^%w%w+:[\\/][\\/]") then
-      return
-    end
-    local file = vim.uv.fs_realpath(event.match) or event.match
-    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+autocmd('CursorHold', {
+  callback = function()
+    --vim.diagnostic.open_float(nil, { focus = false })
   end,
 })
 
