@@ -4,7 +4,7 @@ return {
   priority = 100,
   opts = {
     detection_methods = { "lsp", "pattern" },
-    patterns = { ".luacheckrc", "luarc.json", ".git", "Makefile", "package.json", "go.mod" },
+    patterns = { ".luacheckrc", ".luarc.json", ".git" },
     silent_chdir = true,
   },
   config = function(_, opts)
